@@ -18,7 +18,7 @@ interface WaitlistResponse {
 
 export class EmailService {
   // Using Formspree - much more reliable than Google Apps Script
-  private static readonly FORMSPREE_URL = 'https://formspree.io/f/xdkopqaw';
+  private static readonly FORMSPREE_URL = 'https://formspree.io/f/xkgbndpo';
   
   // For fallback/offline functionality
   private static readonly STORAGE_KEY = 'picturist_waitlist_emails_pending';
