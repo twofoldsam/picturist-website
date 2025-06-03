@@ -18,7 +18,7 @@ interface WaitlistResponse {
 
 export class EmailService {
   // Replace with your Google Apps Script Web App URL (UPDATE IF YOU GOT A NEW URL FROM REDEPLOYMENT)
-  private static readonly SHEETS_API_URL = 'https://script.google.com/macros/s/AKfycbzZqzqMdTEpBxkKST6iYHMJGPQgRf14AlwyJ5l_IwRBeZWfobG6k1YyYzxm4igmbsVrEA/exec';
+  private static readonly SHEETS_API_URL = 'https://script.google.com/macros/s/AKfycbzd8YYJ-QjXYl-jJmxCyqNkV-a_tHXh0UkhBM9AxCIVeswnUx_4vqV3Fc_LxB1VYQBqBA/exec';
   
   // For fallback/offline functionality
   private static readonly STORAGE_KEY = 'picturist_waitlist_emails_pending';
