@@ -83,10 +83,8 @@ export const FloatingCTA = () => {
     const success = await submitEmail(email, "floating-cta");
     
     if (success) {
-      // Close modal after showing success for a while
-      setTimeout(() => {
-        setShowModal(false);
-      }, 3000);
+      // Keep the modal open to show success state
+      // Don't auto-close - let user decide when to close
     }
   };
   
@@ -231,11 +229,10 @@ export const FloatingCTA = () => {
                         <Check className="h-8 w-8 text-[#1E4A52]" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-[#292D31] mb-2">
-                        You're on the list!
+                        Welcome to the waitlist! 🎉
                       </h3>
-                      <p className="text-[#6B7280] text-center">
-                        Thanks for joining our waitlist. We'll
-                        notify you when Picturist is ready.
+                      <p className="text-[#6B7280] text-center leading-relaxed">
+                        You're all set! We'll send you an email when Picturist launches on <span className="font-medium text-[#292D31]">June 26, 2025</span>. Early access members get priority support and exclusive benefits.
                       </p>
                     </motion.div>
                   </div>

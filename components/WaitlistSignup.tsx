@@ -41,11 +41,8 @@ export const WaitlistSignup = () => {
     const success = await submitEmail(email, "main-form");
     
     if (success) {
-      // Reset after showing success for a while
-      setTimeout(() => {
-        setEmail("");
-        setHasJoined(false);
-      }, 5000);
+      // Keep the success state - don't reset it automatically
+      // User can refresh the page if they want to submit another email
     }
   };
 
@@ -110,12 +107,10 @@ export const WaitlistSignup = () => {
                       <CheckCircle className="h-8 w-8 text-[var(--picturist-teal)]" />
                     </div>
                     <h3 className="text-xl font-semibold text-[var(--picturist-charcoal)] mb-2">
-                      You're on the list!
+                      Welcome to the waitlist! 🎉
                     </h3>
-                    <p className="text-[var(--picturist-text-muted)] text-center">
-                      Thank you for joining our waitlist. We'll
-                      notify you when Picturist is ready for you
-                      to experience.
+                    <p className="text-[var(--picturist-text-muted)] text-center leading-relaxed">
+                      You're all set! We'll send you an email when Picturist launches on <span className="font-medium text-[var(--picturist-charcoal)]">June 26, 2025</span>. Early access members get priority support and exclusive benefits.
                     </p>
                   </motion.div>
                 </div>
