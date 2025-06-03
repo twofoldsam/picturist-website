@@ -89,3 +89,4 @@ temp/
 # *.avi
 # *.mkv
 # public/videos/
+.vercel
