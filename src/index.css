@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Picturist Color Palette - Updated to match style guide */
+  --picturist-charcoal: #292D31;
+  --picturist-teal: #1E4A52;
+  --picturist-gold: #B8860B;
+  --picturist-warm-white: #FEFCF8;
+  --picturist-light-teal: #E6F2F3;
+  --picturist-soft-gray: #F7F6F4;
+  --picturist-text-muted: #6B7280;
+  --picturist-error: #DC2626;
+  --picturist-error-bg: #FEF2F2;
+  
+  /* Border radius */
+  --radius: 0.5rem;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Serif font for all headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* Custom utility classes */
+.elegant-card {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.elegant-input {
+  transition: all 0.2s ease-in-out;
+}
+
+.elegant-input:focus {
+  transform: translateY(-1px);
+} 

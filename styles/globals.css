@@ -1,0 +1,419 @@
+@custom-variant dark (&:is(.dark *));
+
+@import url('https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Times+New+Roman:wght@400;700&display=swap');
+
+:root {
+  --font-size: 14px;
+  --background: #FEFCF8; /* Updated to warm white */
+  --foreground: #292D31; /* Updated to charcoal */
+  
+  /* New Picturist brand colors */
+  --picturist-charcoal: #292D31;
+  --picturist-teal: #1E4A52;
+  --picturist-gold: #B8860B;
+  --picturist-warm-white: #FEFCF8;
+  --picturist-light-teal: #E6F2F3;
+  --picturist-soft-gray: #F7F6F4;
+  --picturist-text-muted: #6B7280;
+  
+  /* Button hover color */
+  --picturist-teal-dark: #154145;
+  
+  /* Error colors */
+  --picturist-error: #DC2626;
+  --picturist-error-bg: #FEE2E2;
+  
+  /* Update base system variables */
+  --card: var(--picturist-warm-white);
+  --card-foreground: var(--picturist-charcoal);
+  --popover: var(--picturist-warm-white);
+  --popover-foreground: var(--picturist-charcoal);
+  --primary: var(--picturist-teal);
+  --primary-foreground: var(--picturist-warm-white);
+  --secondary: var(--picturist-soft-gray);
+  --secondary-foreground: var(--picturist-charcoal);
+  --muted: var(--picturist-soft-gray);
+  --muted-foreground: var(--picturist-text-muted);
+  --accent: var(--picturist-light-teal);
+  --accent-foreground: var(--picturist-teal);
+  --destructive: var(--picturist-error);
+  --destructive-foreground: var(--picturist-warm-white);
+  --border: var(--picturist-soft-gray);
+  --input: transparent;
+  --input-background: var(--picturist-soft-gray);
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: var(--picturist-teal);
+  --radius: 0.75rem; /* Updated to 12px */
+  --sidebar: var(--picturist-warm-white);
+  --sidebar-foreground: var(--picturist-charcoal);
+  --sidebar-primary: var(--picturist-teal);
+  --sidebar-primary-foreground: var(--picturist-warm-white);
+  --sidebar-accent: var(--picturist-light-teal);
+  --sidebar-accent-foreground: var(--picturist-charcoal);
+  --sidebar-border: var(--picturist-soft-gray);
+  --sidebar-ring: var(--picturist-teal);
+  
+  /* Keeping legacy colors for backward compatibility */
+  --charcoal: var(--picturist-charcoal);
+  
+  /* Chart colors for data visualization */
+  --chart-1: var(--picturist-teal);
+  --chart-2: #4E7D85;
+  --chart-3: #759EA4;
+  --chart-4: var(--picturist-gold);
+  --chart-5: #D4AF37;
+}
+
+.dark {
+  --background: var(--picturist-charcoal);
+  --foreground: var(--picturist-warm-white);
+  --card: var(--picturist-charcoal);
+  --card-foreground: var(--picturist-warm-white);
+  --popover: var(--picturist-charcoal);
+  --popover-foreground: var(--picturist-warm-white);
+  --primary: var(--picturist-warm-white);
+  --primary-foreground: var(--picturist-charcoal);
+  --secondary: #374046;
+  --secondary-foreground: var(--picturist-warm-white);
+  --muted: #374046;
+  --muted-foreground: #A2A9B1;
+  --accent: #2F4C52;
+  --accent-foreground: var(--picturist-warm-white);
+  --destructive: var(--picturist-error);
+  --destructive-foreground: var(--picturist-error-bg);
+  --border: #374046;
+  --input: #374046;
+  --ring: var(--picturist-teal);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 0.25rem);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 0.25rem);
+  --radius-xl: calc(var(--radius) + 0.5rem);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Selection styling */
+  ::selection {
+    background-color: var(--picturist-light-teal);
+    color: var(--picturist-charcoal);
+  }
+}
+
+@layer base {
+  /* Heading typography - serif fonts */
+  h1 {
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--picturist-charcoal);
+  }
+
+  h2 {
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: var(--text-xl);
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--picturist-charcoal);
+  }
+
+  h3 {
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: var(--text-lg);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--picturist-charcoal);
+  }
+
+  /* Body text - sans serif */
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+    color: var(--picturist-charcoal);
+  }
+
+  p {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    color: var(--picturist-charcoal);
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+    color: var(--picturist-charcoal);
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+    transition: all 200ms ease;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+    background-color: var(--picturist-soft-gray);
+    border-radius: var(--radius);
+    transition: all 200ms ease;
+  }
+  
+  a {
+    transition: all 200ms ease;
+    color: var(--picturist-teal);
+  }
+  
+  a:hover {
+    color: var(--picturist-teal-dark);
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Custom utility classes */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  background-size: 100%;
+  background-position: 0%;
+}
+
+/* Editorial styling classes */
+.elegant-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.elegant-card {
+  background-color: var(--picturist-warm-white);
+  border-radius: var(--radius);
+  border: 1px solid var(--picturist-soft-gray);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.elegant-input {
+  background-color: var(--picturist-soft-gray);
+  border: 1px solid var(--picturist-soft-gray);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  transition: all 200ms ease;
+}
+
+.elegant-input:focus {
+  border-color: var(--picturist-teal);
+  box-shadow: 0 0 0 2px rgba(30, 74, 82, 0.15);
+}
+
+/* Aspect ratio containers for images */
+.aspect-w-4 {
+  position: relative;
+  padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
+  --tw-aspect-w: 4;
+}
+
+.aspect-h-3 {
+  --tw-aspect-h: 3;
+}
+
+.aspect-w-16 {
+  position: relative;
+  padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
+  --tw-aspect-w: 16;
+}
+
+.aspect-h-9 {
+  --tw-aspect-h: 9;
+}
+
+.aspect-w-1 {
+  position: relative;
+  padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
+  --tw-aspect-w: 1;
+}
+
+.aspect-h-1 {
+  --tw-aspect-h: 1;
+}
+
+/* Text fade out for content showcase */
+.text-fade-out {
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+/* Animation keyframes */
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes analysis-wave {
+  0% {
+    background-position: -40% 0;
+  }
+  100% {
+    background-position: 140% 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Animation for the Style Picker elements */
+@keyframes rainfall {
+  0% { 
+    top: -20px; 
+    opacity: 1; 
+  }
+  100% { 
+    top: 100%; 
+    opacity: 0; 
+  }
+}
+
+@keyframes successPulse {
+  0% { 
+    transform: scale(0); 
+    opacity: 0; 
+  }
+  50% { 
+    transform: scale(1.2); 
+    opacity: 1; 
+  }
+  100% { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+.animate-analysis-wave {
+  background-size: 40% 100%;
+  animation: analysis-wave 1.5s ease-in-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.animate-successPulse {
+  animation: successPulse 2s ease-in-out;
+}
+
+/* Style cards hover effects */
+.style-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -5px rgba(0, 0, 0, 0.1);
+}
+
+.style-card.selected .selected-indicator {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Style preview animations */
+.style-whimsical .whimsical-dot {
+  animation: float 3s ease-in-out infinite;
+}
+
+.style-whimsical .whimsical-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
