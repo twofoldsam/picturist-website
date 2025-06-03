@@ -83,9 +83,9 @@ jspm_packages/
 tmp/
 temp/
 
-# Video files - host on CDN instead
-*.mp4
-*.mov
-*.avi
-*.mkv
-public/videos/
+# Video files - host on CDN instead (temporarily commented out)
+# *.mp4
+# *.mov
+# *.avi
+# *.mkv
+# public/videos/
