@@ -82,3 +82,10 @@ jspm_packages/
 # Temporary folders
 tmp/
 temp/
+
+# Video files - host on CDN instead
+*.mp4
+*.mov
+*.avi
+*.mkv
+public/videos/
