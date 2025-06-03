@@ -1,6 +1,6 @@
 /**
  * EmailService.ts
- * A service for handling waitlist email submissions to Google Sheets
+ * A service for handling waitlist email submissions via Formspree
  */
 
 interface WaitlistSubmissionData {
@@ -17,14 +17,14 @@ interface WaitlistResponse {
 }
 
 export class EmailService {
-  // Replace with your Google Apps Script Web App URL (UPDATE IF YOU GOT A NEW URL FROM REDEPLOYMENT)
-  private static readonly SHEETS_API_URL = 'https://script.google.com/macros/s/AKfycbzd8YYJ-QjXYl-jJmxCyqNkV-a_tHXh0UkhBM9AxCIVeswnUx_4vqV3Fc_LxB1VYQBqBA/exec';
+  // Using Formspree - much more reliable than Google Apps Script
+  private static readonly FORMSPREE_URL = 'https://formspree.io/f/xdkopqaw';
   
   // For fallback/offline functionality
   private static readonly STORAGE_KEY = 'picturist_waitlist_emails_pending';
   
   /**
-   * Submit an email to the waitlist via Google Sheets
+   * Submit an email to the waitlist via Formspree
    */
   public static async submitEmail(email: string, source: string = 'website'): Promise<boolean> {
     try {
@@ -34,25 +34,26 @@ export class EmailService {
       }
       
       // Prepare submission data
-      const submissionData: WaitlistSubmissionData = {
+      const submissionData = {
         email,
         source,
+        message: `New waitlist signup from ${source}`,
         // Capture UTM parameters if available
         utm_source: this.getUTMParameter('utm_source'),
         utm_medium: this.getUTMParameter('utm_medium'),
         utm_campaign: this.getUTMParameter('utm_campaign')
       };
       
-      // Attempt to submit to Google Sheets
-      const response = await this.submitToGoogleSheets(submissionData);
+      // Attempt to submit to Formspree
+      const response = await this.submitToFormspree(submissionData);
       
       if (response.success) {
-        console.log(`Email ${email} added to waitlist via Google Sheets`);
+        console.log(`Email ${email} added to waitlist via Formspree`);
         this.saveSubmissionLocally(email, source, true); // Mark as successfully synced
         return true;
       } else {
         // If the API call fails due to network issues, save locally for later sync
-        console.warn('Failed to submit to Google Sheets:', response.message);
+        console.warn('Failed to submit to Formspree:', response.message);
         this.saveSubmissionLocally(email, source, false);
         return false;
       }
@@ -65,37 +66,40 @@ export class EmailService {
   }
   
   /**
-   * Make the actual API request to Google Sheets
+   * Make the actual API request to Formspree
    */
-  private static async submitToGoogleSheets(data: WaitlistSubmissionData): Promise<WaitlistResponse> {
+  private static async submitToFormspree(data: any): Promise<WaitlistResponse> {
     try {
-      console.log('🚀 Attempting to submit to Google Sheets:', this.SHEETS_API_URL);
+      console.log('🚀 Attempting to submit to Formspree:', this.FORMSPREE_URL);
       console.log('📧 Data being sent:', data);
       
-      const response = await fetch(this.SHEETS_API_URL, {
+      const response = await fetch(this.FORMSPREE_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        body: JSON.stringify(data),
-        mode: 'cors'
+        body: JSON.stringify(data)
       });
       
       console.log('📡 Response status:', response.status);
       console.log('📡 Response ok:', response.ok);
       
-      // Handle non-JSON responses (like CORS preflight)
       if (!response.ok) {
-        console.error('❌ HTTP error:', response.status, response.statusText);
         throw new Error(`HTTP error: ${response.status}`);
       }
       
       const responseData = await response.json();
       console.log('✅ Response data:', responseData);
-      return responseData;
+      
+      // Formspree returns ok: true on success
+      return {
+        success: responseData.ok === true,
+        message: responseData.ok ? 'Email added successfully' : 'Failed to submit'
+      };
       
     } catch (error) {
-      console.error('❌ Google Sheets API error:', error);
+      console.error('❌ Formspree API error:', error);
       return {
         success: false,
         message: error instanceof Error ? error.message : 'Unknown error'
@@ -188,7 +192,7 @@ export class EmailService {
     
     for (const entry of unsynced) {
       try {
-        const result = await this.submitToGoogleSheets({
+        const result = await this.submitToFormspree({
           email: entry.email,
           source: entry.source,
           utm_source: entry.utm_source || '',
