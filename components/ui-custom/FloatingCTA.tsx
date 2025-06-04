@@ -11,6 +11,7 @@ export const FloatingCTA = () => {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
   const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [daysUntilLaunch, setDaysUntilLaunch] = useState(0);
   
   const { 
     isSubmitting, 
@@ -20,6 +21,19 @@ export const FloatingCTA = () => {
     submissionError,
     setSubmissionError
   } = useWaitlist();
+  
+  // Calculate days until beta launch
+  useEffect(() => {
+    const calculateDays = () => {
+      const launchDate = new Date('June 26, 2025 00:00:00');
+      const today = new Date();
+      const timeDiff = launchDate.getTime() - today.getTime();
+      const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      setDaysUntilLaunch(daysDiff > 0 ? daysDiff : 0);
+    };
+    
+    calculateDays();
+  }, []);
   
   // Monitor online status
   useEffect(() => {
@@ -130,7 +144,7 @@ export const FloatingCTA = () => {
                 {/* Days counter with teal highlight */}
                 <div className="flex-shrink-0 py-3 px-3 sm:px-4">
                   <div className="flex items-center">
-                    <span className="text-lg sm:text-xl font-serif font-bold text-[#1E4A52]">32</span>
+                    <span className="text-lg sm:text-xl font-serif font-bold text-[#1E4A52]">{daysUntilLaunch}</span>
                     <span className="ml-1.5 text-sm text-[#292D31] whitespace-nowrap">days until beta launch</span>
                   </div>
                 </div>
