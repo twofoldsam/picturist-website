@@ -11,11 +11,11 @@ import { useWaitlist } from "../context/WaitlistContext";
 export const WaitlistSignup = () => {
   const [email, setEmail] = useState("");
   const [isOnline, setIsOnline] = useState(navigator.onLine);
+  // Local success state to prevent interference from FloatingCTA
+  const [localHasJoined, setLocalHasJoined] = useState(false);
   
   const {
     isSubmitting,
-    hasJoined,
-    setHasJoined,
     submitEmail,
     submissionError,
     setSubmissionError
@@ -41,8 +41,8 @@ export const WaitlistSignup = () => {
     const success = await submitEmail(email, "main-form");
     
     if (success) {
-      // Keep the success state - don't reset it automatically
-      // User can refresh the page if they want to submit another email
+      // Set local success state - this will persist independently
+      setLocalHasJoined(true);
     }
   };
 
@@ -96,7 +96,7 @@ export const WaitlistSignup = () => {
 
             {/* Form Card */}
             <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg border border-[var(--picturist-soft-gray)] elegant-card">
-              {hasJoined ? (
+              {localHasJoined ? (
                 <div className="py-8">
                   <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}

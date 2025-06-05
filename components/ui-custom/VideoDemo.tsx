@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Play } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Play, Loader2 } from 'lucide-react';
 import { useVideoModal } from './VideoModal';
 
 interface VideoDemoProps {
@@ -19,6 +19,8 @@ export const VideoDemo: React.FC<VideoDemoProps> = ({
   className = ""
 }) => {
   const { openVideo } = useVideoModal();
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handlePlayClick = () => {
     openVideo(videoSrc, title, description);
@@ -28,43 +30,97 @@ export const VideoDemo: React.FC<VideoDemoProps> = ({
     <motion.div
       className={`relative group cursor-pointer rounded-xl overflow-hidden shadow-lg ${className}`}
       onClick={handlePlayClick}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
       whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.3 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
     >
       {/* Poster Image */}
       <div className="relative aspect-video bg-[var(--picturist-soft-gray)]">
+        {/* Loading skeleton */}
+        {!imageLoaded && (
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--picturist-soft-gray)] via-gray-200 to-[var(--picturist-soft-gray)] animate-pulse" />
+        )}
+        
         <img
           src={posterSrc}
           alt="Picturist Demo Preview"
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover transition-opacity duration-300 ${
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoad={() => setImageLoaded(true)}
         />
         
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
+        {/* Gradient overlay - animated */}
+        <motion.div 
+          className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"
+          animate={{ 
+            opacity: isHovered ? 0.8 : 0.5 
+          }}
+          transition={{ duration: 0.3 }}
+        />
         
-        {/* Play Button */}
+        {/* Play Button - enhanced with loading state */}
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.div
-            className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:bg-white transition-colors duration-300"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
+            className="relative"
+            animate={{ 
+              scale: isHovered ? 1.1 : 1,
+            }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <Play 
-              className="w-6 h-6 text-[var(--picturist-teal)] ml-1" 
-              fill="currentColor"
+            {/* Glow effect */}
+            <motion.div
+              className="absolute inset-0 bg-white/20 rounded-full blur-xl"
+              animate={{ 
+                scale: isHovered ? 1.2 : 0.8,
+                opacity: isHovered ? 1 : 0.5 
+              }}
+              transition={{ duration: 0.3 }}
             />
+            
+            {/* Main button */}
+            <motion.div
+              className="relative w-16 h-16 md:w-20 md:h-20 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg border border-white/50"
+              whileTap={{ scale: 0.9 }}
+              transition={{ duration: 0.1 }}
+            >
+              <Play 
+                className="w-6 h-6 md:w-8 md:h-8 text-[var(--picturist-teal)] ml-1" 
+                fill="currentColor"
+              />
+            </motion.div>
           </motion.div>
         </div>
         
-        {/* Title overlay */}
-        <div className="absolute bottom-4 left-4 right-4">
-          <h3 className="text-white font-serif font-semibold text-lg mb-1 drop-shadow-sm">
+        {/* Title overlay - improved mobile visibility */}
+        <motion.div 
+          className="absolute bottom-4 left-4 right-4"
+          animate={{ 
+            y: isHovered ? 0 : 8,
+            opacity: isHovered ? 1 : 0.9 
+          }}
+          transition={{ duration: 0.3 }}
+        >
+          <h3 className="text-white font-serif font-semibold text-lg md:text-xl mb-1 drop-shadow-lg">
             {title}
           </h3>
-          <p className="text-white/90 text-sm drop-shadow-sm">
+          <p className="text-white/90 text-sm md:text-base drop-shadow-md">
             {description}
           </p>
-        </div>
+        </motion.div>
+        
+        {/* Ripple effect on click */}
+        <motion.div
+          className="absolute inset-0 bg-white/20 rounded-xl"
+          initial={{ scale: 0, opacity: 0 }}
+          whileTap={{ 
+            scale: 1.5, 
+            opacity: [0, 0.3, 0],
+            transition: { duration: 0.6 }
+          }}
+        />
       </div>
     </motion.div>
   );
