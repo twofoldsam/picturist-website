@@ -42,12 +42,12 @@ export const Navbar = () => {
             transition={{ duration: 0.4, delay: 0.5 }}
           >
             <Button
-              variant="outline"
+              variant="ghost"
               size="default"
               className="hidden md:inline-flex"
               onClick={() => window.location.href = 'https://app.picturist.ai'}
             >
-              Log in
+              Sign in
             </Button>
             <Button
               variant="primary"
@@ -59,11 +59,11 @@ export const Navbar = () => {
             </Button>
             <div className="md:hidden flex space-x-2">
               <Button
-                variant="outline"
+                variant="ghost"
                 size="sm"
                 onClick={() => window.location.href = 'https://app.picturist.ai'}
               >
-                Log in
+                Sign in
               </Button>
               <Button
                 variant="primary"
