@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "./ui-custom/Button";
 import { motion } from "framer-motion";
 import { PicturistLogo } from "./ui-custom/PicturistLogo";
-import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   // Empty navLinks array since we're removing the navigation
@@ -42,15 +41,14 @@ export const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.5 }}
           >
-            <Link to="/login">
-              <Button
-                variant="outline"
-                size="default"
-                className="hidden md:inline-flex"
-              >
-                Log in
-              </Button>
-            </Link>
+            <Button
+              variant="outline"
+              size="default"
+              className="hidden md:inline-flex"
+              onClick={() => window.location.href = 'https://app.picturist.ai'}
+            >
+              Log in
+            </Button>
             <Button
               variant="primary"
               size="default"
@@ -60,14 +58,13 @@ export const Navbar = () => {
               Join Waitlist
             </Button>
             <div className="md:hidden flex space-x-2">
-              <Link to="/login">
-                <Button
-                  variant="outline"
-                  size="sm"
-                >
-                  Log in
-                </Button>
-              </Link>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => window.location.href = 'https://app.picturist.ai'}
+              >
+                Log in
+              </Button>
               <Button
                 variant="primary"
                 size="sm"
