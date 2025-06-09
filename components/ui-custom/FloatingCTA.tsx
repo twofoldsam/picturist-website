@@ -159,10 +159,19 @@ export const FloatingCTA = () => {
                   </p>
                 </div>
                 
-                {/* CTA button */}
-                <div className="py-2 px-2 sm:px-4">
+                {/* CTA buttons */}
+                <div className="py-2 px-2 sm:px-4 flex gap-2">
                   <Button 
                     variant="primary" 
+                    size="sm"
+                    onClick={() => window.location.href = 'https://app.picturist.ai'}
+                    className="whitespace-nowrap group"
+                  >
+                    <span>Launch App</span>
+                    <ArrowRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-0.5 transition-transform" />
+                  </Button>
+                  <Button 
+                    variant="secondary" 
                     size="sm"
                     onClick={handleJoinClick}
                     className="whitespace-nowrap group"

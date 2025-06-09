@@ -164,6 +164,19 @@ export const Hero = () => {
                   size="lg"
                   weight="bold"
                   className="group shadow-md"
+                  onClick={() => window.location.href = 'https://app.picturist.ai'}
+                >
+                  <span>Launch App</span>
+                  <ArrowRight
+                    size={18}
+                    className="ml-2 group-hover:translate-x-1 transition-transform"
+                  />
+                </Button>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  weight="bold"
+                  className="group shadow-md"
                   onClick={scrollToWaitlist}
                 >
                   <span>Join Waitlist</span>
@@ -173,7 +186,7 @@ export const Hero = () => {
                   />
                 </Button>
                 <Button
-                  variant="secondary"
+                  variant="outline"
                   size="lg"
                   weight="bold"
                   className="inline-flex items-center gap-2 shadow-sm"
