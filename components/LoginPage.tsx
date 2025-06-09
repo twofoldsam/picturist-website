@@ -14,41 +14,9 @@ export default function LoginPage() {
     setLoading(true)
     setError('')
 
-    try {
-      // Direct authentication with NextAuth credentials provider
-      const response = await fetch('https://app.picturist.ai/api/auth/callback/credentials', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-          email: email,
-          password: password,
-          callbackUrl: 'https://app.picturist.ai',
-          json: 'true'
-        }),
-        credentials: 'include',
-        redirect: 'manual'
-      })
-
-      const data = await response.json()
-
-      if (response.ok && data.url) {
-        // Authentication successful, redirect to app
-        window.location.href = data.url
-      } else if (response.ok && !data.error) {
-        // Authentication successful but no redirect URL, go to app
-        window.location.href = 'https://app.picturist.ai'
-      } else {
-        // Authentication failed
-        setError(data.error || 'Invalid email or password')
-        setLoading(false)
-      }
-    } catch (error) {
-      console.error('Authentication error:', error)
-      setError('Network error. Please try again.')
-      setLoading(false)
-    }
+    // Simply redirect to app - let the app handle authentication
+    // This avoids the double login issue
+    window.location.href = 'https://app.picturist.ai/api/auth/signin?callbackUrl=https://app.picturist.ai'
   }
 
   const handleSignUp = async (e: React.FormEvent) => {
@@ -71,43 +39,8 @@ export default function LoginPage() {
       })
       
       if (response.ok) {
-        // Account created successfully, now automatically sign them in
-        try {
-          const authResponse = await fetch('https://app.picturist.ai/api/auth/callback/credentials', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-              email: email,
-              password: password,
-              callbackUrl: 'https://app.picturist.ai',
-              json: 'true'
-            }),
-            credentials: 'include',
-            redirect: 'manual'
-          })
-
-          const authData = await authResponse.json()
-
-          if (authResponse.ok && authData.url) {
-            // Authentication successful, redirect to app
-            window.location.href = authData.url
-          } else if (authResponse.ok && !authData.error) {
-            // Authentication successful but no redirect URL, go to app
-            window.location.href = 'https://app.picturist.ai'
-          } else {
-            // Auto-signin failed, show success message and ask user to sign in manually
-            setError('Account created successfully! Please sign in with your new credentials.')
-            setIsSignUp(false)
-            setLoading(false)
-          }
-        } catch (authError) {
-          console.error('Auto-signin error:', authError)
-          setError('Account created successfully! Please sign in with your new credentials.')
-          setIsSignUp(false)
-          setLoading(false)
-        }
+        // Account created, now redirect to app login
+        window.location.href = 'https://app.picturist.ai/api/auth/signin?callbackUrl=https://app.picturist.ai'
       } else {
         const errorData = await response.json()
         setError(errorData.error || 'Failed to create account')
@@ -144,11 +77,7 @@ export default function LoginPage() {
         
         <form className="mt-8 space-y-6" onSubmit={isSignUp ? handleSignUp : handleSignIn}>
           {error && (
-            <div className={`px-4 py-3 rounded-xl ${
-              error.includes('successfully') 
-                ? 'bg-green-50 border border-green-400 text-green-700'
-                : 'bg-red-50 border border-red-400 text-red-700'
-            }`}>
+            <div className="bg-red-50 border border-red-400 text-red-700 px-4 py-3 rounded-xl">
               {error}
             </div>
           )}
