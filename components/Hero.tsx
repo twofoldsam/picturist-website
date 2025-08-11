@@ -25,7 +25,7 @@ export const Hero = () => {
   
   useEffect(() => {
     const calculateDays = () => {
-      const launchDate = new Date('June 26, 2025 00:00:00');
+      const launchDate = new Date('August 31, 2025 00:00:00');
       const today = new Date();
       const timeDiff = launchDate.getTime() - today.getTime();
       const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
@@ -194,7 +194,7 @@ export const Hero = () => {
                       size={14}
                       className="text-[var(--picturist-teal)]"
                     />
-                    <span>Launching June 2025</span>
+                    <span>Launching August 2025</span>
                   </div>
                   <span className="hidden sm:inline-block">
                     •

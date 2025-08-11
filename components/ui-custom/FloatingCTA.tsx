@@ -25,7 +25,7 @@ export const FloatingCTA = () => {
   // Calculate days until beta launch
   useEffect(() => {
     const calculateDays = () => {
-      const launchDate = new Date('June 26, 2025 00:00:00');
+      const launchDate = new Date('August 31, 2025 00:00:00');
       const today = new Date();
       const timeDiff = launchDate.getTime() - today.getTime();
       const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
@@ -155,7 +155,7 @@ export const FloatingCTA = () => {
                 {/* Launch date - visible on larger screens */}
                 <div className="hidden sm:block py-3 px-2">
                   <p className="text-xs text-[#6B7280]">
-                    <span className="font-medium">Launch:</span> June 26, 2025
+                    <span className="font-medium">Launch:</span> August 31, 2025
                   </p>
                 </div>
                 
@@ -228,7 +228,7 @@ export const FloatingCTA = () => {
                     Join the Picturist Waitlist
                   </h3>
                   <p className="text-sm text-[#6B7280]">
-                    Be among the first to experience Picturist when we launch on June 26, 2025.
+                    Be among the first to experience Picturist when we launch on August 31, 2025.
                   </p>
                 </div>
                 
@@ -246,7 +246,7 @@ export const FloatingCTA = () => {
                         Welcome to the waitlist! 🎉
                       </h3>
                       <p className="text-[#6B7280] text-center leading-relaxed">
-                        You're all set! We'll send you an email when Picturist launches on <span className="font-medium text-[#292D31]">June 26, 2025</span>. Early access members get priority support and exclusive benefits.
+                        You're all set! We'll send you an email when Picturist launches on <span className="font-medium text-[#292D31]">August 31, 2025</span>. Early access members get priority support and exclusive benefits.
                       </p>
                     </motion.div>
                   </div>

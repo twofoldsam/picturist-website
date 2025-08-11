@@ -89,7 +89,7 @@ export const WaitlistSignup = () => {
                   <span className="text-sm font-medium text-[var(--picturist-teal)]">Beta Launch</span>
                 </div>
                 <CountdownTimer 
-                  targetDate={new Date('June 26, 2025 00:00:00')}
+                  targetDate={new Date('August 31, 2025 00:00:00')}
                 />
               </div>
             </motion.div>
@@ -110,7 +110,7 @@ export const WaitlistSignup = () => {
                       Welcome to the waitlist! 🎉
                     </h3>
                     <p className="text-[var(--picturist-text-muted)] text-center leading-relaxed">
-                      You're all set! We'll send you an email when Picturist launches on <span className="font-medium text-[var(--picturist-charcoal)]">June 26, 2025</span>. Early access members get priority support and exclusive benefits.
+                      You're all set! We'll send you an email when Picturist launches on <span className="font-medium text-[var(--picturist-charcoal)]">August 31, 2025</span>. Early access members get priority support and exclusive benefits.
                     </p>
                   </motion.div>
                 </div>
