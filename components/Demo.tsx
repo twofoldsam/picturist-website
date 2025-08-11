@@ -71,8 +71,8 @@ export const Demo = () => {
                   <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <div className="py-2 px-3 rounded-full bg-[#E6F2F3] border border-[#1E4A52]/20 text-sm text-[#1E4A52]">
-                  Only {new Date('June 26, 2025').getTime() > new Date().getTime() 
-                    ? Math.floor((new Date('June 26, 2025').getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)) 
+                  Only {new Date('August 31, 2025').getTime() > new Date().getTime() 
+                    ? Math.floor((new Date('August 31, 2025').getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)) 
                     : 0} days until beta launch!
                 </div>
               </div>
