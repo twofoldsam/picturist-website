@@ -195,7 +195,7 @@ export const Hero = () => {
                   </span>
                   <div className="flex items-center gap-1.5">
                     <Check size={14} className="text-[var(--picturist-teal)]" />
-                    <span>98% satisfaction rate</span>
+                    <span>1,000+ moments brought to life</span>
                   </div>
                 </div>
 
