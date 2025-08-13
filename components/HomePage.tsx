@@ -1,7 +1,7 @@
 import React from "react";
 import { Hero } from "./Hero";
 import { Footer } from "./Footer";
-import { FloatingCTA } from "./ui-custom/FloatingCTA";
+// import { FloatingCTA } from "./ui-custom/FloatingCTA";
 import { ContentTypeShowcase } from "./ContentTypeShowcase";
 
 export const HomePage = () => {
@@ -13,8 +13,6 @@ export const HomePage = () => {
         <ContentTypeShowcase />
       </main>
       <Footer />
-      {/* Floating CTA provides persistent conversion opportunity */}
-      <FloatingCTA />
     </>
   );
 }; 
