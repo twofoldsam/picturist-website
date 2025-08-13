@@ -221,13 +221,8 @@ export const ContentTypeShowcase = () => {
     setActiveType(typeId);
   };
 
-  // Scroll to waitlist section
-  const scrollToWaitlist = (e) => {
-    e.preventDefault();
-    const waitlistSection = document.getElementById("waitlist");
-    if (waitlistSection) {
-      waitlistSection.scrollIntoView({ behavior: "smooth" });
-    }
+  const goToSignUp = () => {
+    window.location.href = 'https://app.picturist.ai/sign-up';
   };
 
   // For the demo, we'll just use the first suggestion
@@ -350,9 +345,9 @@ export const ContentTypeShowcase = () => {
             size="lg"
             weight="bold"
             className="px-8 py-3 min-w-[200px] shadow-md"
-            onClick={scrollToWaitlist}
+            onClick={goToSignUp}
           >
-            <span>Join the Waitlist</span>
+            <span>Sign up</span>
             <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
         </div>

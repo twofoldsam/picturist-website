@@ -5,13 +5,8 @@ import { motion } from "framer-motion";
 import { Button } from "./ui-custom/Button";
 
 export const Demo = () => {
-  // Smooth scroll to waitlist section
-  const scrollToWaitlist = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const waitlistSection = document.getElementById("waitlist");
-    if (waitlistSection) {
-      waitlistSection.scrollIntoView({ behavior: "smooth" });
-    }
+  const goToSignUp = () => {
+    window.location.href = 'https://app.picturist.ai/sign-up';
   };
   
   return (
@@ -65,9 +60,9 @@ export const Demo = () => {
                   variant="primary"
                   size="lg"
                   className="group"
-                  onClick={scrollToWaitlist}
+                  onClick={goToSignUp}
                 >
-                  <span>Join Waitlist</span>
+                  <span>Sign up</span>
                   <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <div className="py-2 px-3 rounded-full bg-[#E6F2F3] border border-[#1E4A52]/20 text-sm text-[#1E4A52]">

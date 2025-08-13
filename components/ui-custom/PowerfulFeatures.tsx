@@ -132,8 +132,8 @@ export const PowerfulFeatures: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2, duration: 0.7 }}
       >
-        <button className="bg-gradient-to-r from-teal-500 to-coral-500 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-          Join the Waitlist
+        <button onClick={() => window.location.href = 'https://app.picturist.ai/sign-up'} className="bg-gradient-to-r from-teal-500 to-coral-500 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+          Sign up
         </button>
         <p className="text-slate-500 mt-4">
           Start creating beautiful illustrations in seconds

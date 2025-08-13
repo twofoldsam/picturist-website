@@ -157,15 +157,16 @@ export const PicturistScreenshotMockup: React.FC<{
         )}
       </motion.div>
 
-      {/* Call to action button positioned at bottom right */}
+      {/* Call to action button positioned at bottom right */
+      }
       <motion.div
         className="absolute bottom-6 right-6 z-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: delay + 0.8, duration: 0.6 }}
       >
-        <button className="py-2 px-4 bg-[#1E4A52] text-white text-sm font-medium rounded-lg shadow-sm hover:bg-[#154145] transition-all flex items-center gap-1.5">
-          <span>Join Waitlist</span>
+        <button onClick={() => window.location.href = 'https://app.picturist.ai/sign-up'} className="py-2 px-4 bg-[#1E4A52] text-white text-sm font-medium rounded-lg shadow-sm hover:bg-[#154145] transition-all flex items-center gap-1.5">
+          <span>Sign up</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>

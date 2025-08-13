@@ -42,13 +42,11 @@ export const Hero = () => {
   const y3 = useTransform(scrollY, [0, 300], [0, -60]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0.5]);
 
-  // Smooth scroll to waitlist section
-  const scrollToWaitlist = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const waitlistSection = document.getElementById("waitlist");
-    if (waitlistSection) {
-      waitlistSection.scrollIntoView({ behavior: "smooth" });
-    }
+  const goToSignUp = () => {
+    window.location.href = 'https://app.picturist.ai/sign-up';
+  };
+  const goToSignIn = () => {
+    window.location.href = 'https://app.picturist.ai/auth/signin';
   };
 
   // Handle watch demo click
@@ -121,17 +119,16 @@ export const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
           {/* Headline and CTA - spans 7 columns on medium screens */}
           <div className="col-span-1 md:col-span-7 flex flex-col mb-10 md:mb-0">
-            {/* Urgency indicator */}
+            {/* Social proof indicator */}
             <MotionWrapper
               variant="fadeInUp"
               delay={0.05}
               className="mb-6"
             >
               <div className="inline-flex items-center px-3 py-1.5 bg-[var(--picturist-light-teal)] border border-[var(--picturist-teal)]/20 rounded-full mb-4 text-[var(--picturist-teal)] text-sm gap-1.5">
-                <Clock size={14} />
+                <Check size={14} />
                 <span>
-                  Beta access opens in{" "}
-                  <span className="font-medium">{daysUntilLaunch} days</span>
+                  <span className="font-medium">5,000+</span> illustrations created
                 </span>
               </div>
             </MotionWrapper>
@@ -164,9 +161,9 @@ export const Hero = () => {
                   size="lg"
                   weight="bold"
                   className="group shadow-md"
-                  onClick={scrollToWaitlist}
+                  onClick={goToSignIn}
                 >
-                  <span>Join Waitlist</span>
+                  <span>Start Illustrating</span>
                   <ArrowRight
                     size={18}
                     className="ml-2 group-hover:translate-x-1 transition-transform"
@@ -185,32 +182,24 @@ export const Hero = () => {
               </div>
             </MotionWrapper>
 
-            {/* Enhanced social proof/urgency indicators */}
+            {/* Enhanced social proof indicators */}
             <MotionWrapper variant="fadeInUp" delay={0.5}>
               <div className="mt-6 mb-4 flex flex-col space-y-3">
                 <div className="text-sm text-[var(--picturist-text-muted)] flex flex-wrap items-center gap-3">
                   <div className="flex items-center gap-1.5">
-                    <Check
-                      size={14}
-                      className="text-[var(--picturist-teal)]"
-                    />
-                    <span>Launching August 2025</span>
+                    <Check size={14} className="text-[var(--picturist-teal)]" />
+                    <span>5,000+ illustrations created</span>
                   </div>
                   <span className="hidden sm:inline-block">
                     •
                   </span>
                   <div className="flex items-center gap-1.5">
-                    <Check
-                      size={14}
-                      className="text-[var(--picturist-teal)]"
-                    />
-                    <span>
-                      Priority access for waitlist members
-                    </span>
+                    <Check size={14} className="text-[var(--picturist-teal)]" />
+                    <span>1,000+ moments brought to life</span>
                   </div>
                 </div>
 
-                {/* Waitlist counter - small version */}
+                {/* Social proof avatars */}
                 <div className="flex items-center gap-2 text-sm">
                   <div className="flex -space-x-1.5">
                     <div className="w-6 h-6 rounded-full bg-[var(--picturist-light-teal)] border-2 border-white flex items-center justify-center text-xs text-[var(--picturist-teal)]">
@@ -227,7 +216,7 @@ export const Hero = () => {
                     <span className="font-medium text-[var(--picturist-teal)]">
                       543+
                     </span>{" "}
-                    people on waitlist
+                    creators already illustrating
                   </span>
                 </div>
               </div>
@@ -364,7 +353,7 @@ export const Hero = () => {
           </MotionWrapper>
         </div>
 
-        {/* Mid-page CTA */}
+            {/* Mid-page CTA */}
         <MotionWrapper
           variant="fadeInUp"
           delay={0.2}
@@ -375,13 +364,13 @@ export const Hero = () => {
               size="lg"
               weight="bold"
               className="group shadow-md"
-              onClick={scrollToWaitlist}
+                  onClick={goToSignIn}
             >
-              <span>Join Waitlist</span>
+                  <span>Start Illustrating</span>
               <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             <p className="text-sm text-[var(--picturist-text-muted)] mt-3">
-              Join 543+ on the waitlist and get priority access
+                  Create your account to get started
             </p>
           </div>
         </MotionWrapper>
