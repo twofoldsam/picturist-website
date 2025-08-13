@@ -7,13 +7,12 @@ export const Navbar = () => {
   // Empty navLinks array since we're removing the navigation
   const navLinks: any[] = [];
 
-  // Scroll to waitlist section
-  const scrollToWaitlist = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const waitlistSection = document.getElementById("waitlist");
-    if (waitlistSection) {
-      waitlistSection.scrollIntoView({ behavior: "smooth" });
-    }
+  const goToSignUp = () => {
+    window.location.href = 'https://app.picturist.ai/sign-up';
+  };
+
+  const goToSignIn = () => {
+    window.location.href = 'https://app.picturist.ai/auth/signin';
   };
 
   return (
@@ -45,7 +44,7 @@ export const Navbar = () => {
               variant="ghost"
               size="default"
               className="hidden md:inline-flex"
-              onClick={() => window.location.href = 'https://app.picturist.ai'}
+              onClick={goToSignIn}
             >
               Sign in
             </Button>
@@ -53,24 +52,24 @@ export const Navbar = () => {
               variant="primary"
               size="default"
               className="hidden md:inline-flex"
-              onClick={scrollToWaitlist}
+              onClick={goToSignUp}
             >
-              Join Waitlist
+              Sign up
             </Button>
             <div className="md:hidden flex space-x-2">
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => window.location.href = 'https://app.picturist.ai'}
+                onClick={goToSignIn}
               >
                 Sign in
               </Button>
               <Button
                 variant="primary"
                 size="sm"
-                onClick={scrollToWaitlist}
+                onClick={goToSignUp}
               >
-                Join Waitlist
+                Sign up
               </Button>
             </div>
           </motion.div>

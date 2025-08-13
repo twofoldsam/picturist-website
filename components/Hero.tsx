@@ -42,13 +42,11 @@ export const Hero = () => {
   const y3 = useTransform(scrollY, [0, 300], [0, -60]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0.5]);
 
-  // Smooth scroll to waitlist section
-  const scrollToWaitlist = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const waitlistSection = document.getElementById("waitlist");
-    if (waitlistSection) {
-      waitlistSection.scrollIntoView({ behavior: "smooth" });
-    }
+  const goToSignUp = () => {
+    window.location.href = 'https://app.picturist.ai/sign-up';
+  };
+  const goToSignIn = () => {
+    window.location.href = 'https://app.picturist.ai/auth/signin';
   };
 
   // Handle watch demo click
@@ -164,13 +162,22 @@ export const Hero = () => {
                   size="lg"
                   weight="bold"
                   className="group shadow-md"
-                  onClick={scrollToWaitlist}
+                  onClick={goToSignUp}
                 >
-                  <span>Join Waitlist</span>
+                  <span>Sign up</span>
                   <ArrowRight
                     size={18}
                     className="ml-2 group-hover:translate-x-1 transition-transform"
                   />
+                </Button>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  weight="bold"
+                  className="inline-flex items-center gap-2 shadow-sm"
+                  onClick={goToSignIn}
+                >
+                  Sign in
                 </Button>
                 <Button
                   variant="secondary"
@@ -364,7 +371,7 @@ export const Hero = () => {
           </MotionWrapper>
         </div>
 
-        {/* Mid-page CTA */}
+            {/* Mid-page CTA */}
         <MotionWrapper
           variant="fadeInUp"
           delay={0.2}
@@ -375,13 +382,22 @@ export const Hero = () => {
               size="lg"
               weight="bold"
               className="group shadow-md"
-              onClick={scrollToWaitlist}
+                  onClick={goToSignUp}
             >
-              <span>Join Waitlist</span>
+                  <span>Sign up</span>
               <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  weight="bold"
+                  className="inline-flex items-center gap-2 shadow-sm ml-3"
+                  onClick={goToSignIn}
+                >
+                  Sign in
+                </Button>
             <p className="text-sm text-[var(--picturist-text-muted)] mt-3">
-              Join 543+ on the waitlist and get priority access
+                  Create your account to get started
             </p>
           </div>
         </MotionWrapper>

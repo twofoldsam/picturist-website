@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { HomePage } from "./components/HomePage";
 import { AnimatePresence } from "framer-motion";
-import { WaitlistProvider } from "./context/WaitlistContext";
 import { VideoModalProvider } from "./components/ui-custom/VideoModal";
 import { Toaster } from "sonner";
 
@@ -12,7 +11,6 @@ export default function App() {
     <Router>
       <AnimatePresence>
         <VideoModalProvider>
-          <WaitlistProvider>
             <div className="min-h-screen bg-[var(--picturist-warm-white)] relative">
               <Navbar />
               <Routes>
@@ -31,7 +29,6 @@ export default function App() {
                 }}
               />
             </div>
-          </WaitlistProvider>
         </VideoModalProvider>
       </AnimatePresence>
     </Router>

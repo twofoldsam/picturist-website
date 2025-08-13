@@ -47,16 +47,13 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
     }),
   };
 
-  // Scroll to waitlist section
-  const scrollToWaitlist = (e: React.MouseEvent) => {
-    e.preventDefault();
+  const goToSignUp = () => {
     onClose();
-    setTimeout(() => {
-      const waitlistSection = document.getElementById('waitlist');
-      if (waitlistSection) {
-        waitlistSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 300); // Allow time for mobile menu to close
+    window.location.href = 'https://app.picturist.ai/sign-up';
+  };
+  const goToSignIn = () => {
+    onClose();
+    window.location.href = 'https://app.picturist.ai/auth/signin';
   };
 
   return (
@@ -121,17 +118,16 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
                 variant="primary" 
                 size="default" 
                 className="w-full"
-                onClick={scrollToWaitlist}
+                onClick={goToSignUp}
               >
-                Join Waitlist
+                Sign up
               </Button>
-              <a 
-                href="#login" 
-                className="block text-center mt-4 text-[#292D31] hover:text-[#1E4A52] transition-colors"
-                onClick={onClose}
+              <button 
+                onClick={goToSignIn}
+                className="block w-full text-center mt-4 text-[#292D31] hover:text-[#1E4A52] transition-colors"
               >
-                Log in
-              </a>
+                Sign in
+              </button>
             </div>
           </motion.div>
         </>

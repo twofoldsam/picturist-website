@@ -111,8 +111,9 @@ export const Features = () => {
             variant="primary" 
             size="lg" 
             className="px-8 py-3 bg-[#1E4A52] hover:bg-[#154145] text-white rounded-full shadow-md transition-all"
+            onClick={() => window.location.href = 'https://app.picturist.ai/sign-up'}
           >
-            <span>Join the Waitlist</span>
+            <span>Sign up</span>
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </motion.div>
