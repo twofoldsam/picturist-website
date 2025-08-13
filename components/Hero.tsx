@@ -162,22 +162,13 @@ export const Hero = () => {
                   size="lg"
                   weight="bold"
                   className="group shadow-md"
-                  onClick={goToSignUp}
+                  onClick={goToSignIn}
                 >
-                  <span>Sign up</span>
+                  <span>Start illustrating</span>
                   <ArrowRight
                     size={18}
                     className="ml-2 group-hover:translate-x-1 transition-transform"
                   />
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  weight="bold"
-                  className="inline-flex items-center gap-2 shadow-sm"
-                  onClick={goToSignIn}
-                >
-                  Sign in
                 </Button>
                 <Button
                   variant="secondary"
@@ -382,20 +373,11 @@ export const Hero = () => {
               size="lg"
               weight="bold"
               className="group shadow-md"
-                  onClick={goToSignUp}
+                  onClick={goToSignIn}
             >
-                  <span>Sign up</span>
+                  <span>Start illustrating</span>
               <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  weight="bold"
-                  className="inline-flex items-center gap-2 shadow-sm ml-3"
-                  onClick={goToSignIn}
-                >
-                  Sign in
-                </Button>
             <p className="text-sm text-[var(--picturist-text-muted)] mt-3">
                   Create your account to get started
             </p>
