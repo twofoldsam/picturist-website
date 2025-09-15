@@ -336,7 +336,6 @@ export const Hero = () => {
             {/* Using our video demo component */}
             <VideoDemo 
               videoSrc="/videos/picturist-demo.mp4"
-              posterSrc="/images/picturist-demo-poster.png"
               title="Watch Picturist in Action"
               description="See how AI transforms your content into stunning illustrations"
             />

@@ -5,7 +5,7 @@ import { useVideoModal } from './VideoModal';
 
 interface VideoDemoProps {
   videoSrc: string;
-  posterSrc: string;
+  posterSrc?: string;
   title?: string;
   description?: string;
   className?: string;
@@ -20,6 +20,7 @@ export const VideoDemo: React.FC<VideoDemoProps> = ({
 }) => {
   const { openVideo } = useVideoModal();
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const handlePlayClick = () => {
@@ -36,21 +37,33 @@ export const VideoDemo: React.FC<VideoDemoProps> = ({
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
-      {/* Poster Image */}
+      {/* Poster Image or Video Preview */}
       <div className="relative aspect-video bg-[var(--picturist-soft-gray)]">
         {/* Loading skeleton */}
-        {!imageLoaded && (
+        {(!imageLoaded && !videoLoaded) && (
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--picturist-soft-gray)] via-gray-200 to-[var(--picturist-soft-gray)] animate-pulse" />
         )}
         
-        <img
-          src={posterSrc}
-          alt="Picturist Demo Preview"
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
-            imageLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          onLoad={() => setImageLoaded(true)}
-        />
+        {posterSrc ? (
+          <img
+            src={posterSrc}
+            alt="Picturist Demo Preview"
+            className={`w-full h-full object-cover transition-opacity duration-300 ${
+              imageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            onLoad={() => setImageLoaded(true)}
+          />
+        ) : (
+          <video
+            src={videoSrc}
+            muted
+            preload="metadata"
+            className={`w-full h-full object-cover transition-opacity duration-300 ${
+              videoLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            onLoadedData={() => setVideoLoaded(true)}
+          />
+        )}
         
         {/* Gradient overlay - animated */}
         <motion.div 
