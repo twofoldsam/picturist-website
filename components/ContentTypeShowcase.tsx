@@ -235,7 +235,7 @@ export const ContentTypeShowcase = () => {
           <h2 className="text-3xl md:text-4xl font-serif text-[var(--picturist-charcoal)] mb-4">
             Perfect Illustrations for Any Content
           </h2>
-          <p className="text-lg md:text-xl text-[var(--picturist-text-muted)] max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-[var(--picturist-text-muted)] max-w-2xl mx-auto" style={{fontSize: "30px"}}>
             Whether you're writing fiction, technical
             documentation, comics, or blog posts, Picturist
             elevates your content with tailored illustrations.
