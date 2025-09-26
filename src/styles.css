@@ -1,0 +1,5 @@
+p.text-lg.md:text-xl.lg:text-2xl.text-[var(--picturist-text-muted)].max-w-3xl {
+  font-size: 40px;
+  color: #0f76eb;
+  font-weight: 700;
+}
