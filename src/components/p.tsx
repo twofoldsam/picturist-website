@@ -1,0 +1,1 @@
+// Enhanced: Decrease the opacity of the target element from 1 to 0.2
