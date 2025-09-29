@@ -229,7 +229,7 @@ export const ContentTypeShowcase = () => {
   const primarySuggestion = activeContent.suggestions[0];
 
   return (
-    <section className="py-24 md:py-32 bg-white" id="showcase">
+    <section className="py-24 md:py-32 bg-gray-50" id="showcase">
       <div className="container mx-auto px-4">
         <div className="showcase-header text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-serif text-[var(--picturist-charcoal)] mb-4">
