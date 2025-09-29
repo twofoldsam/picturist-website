@@ -267,7 +267,7 @@ export const ContentTypeShowcase = () => {
         </div>
 
         {/* Content Area */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Left Column - Text Content */}
           <div className="content-area">
             <div className="bg-white border border-slate-100 rounded-xl p-4 shadow-sm relative overflow-hidden h-[300px]">
