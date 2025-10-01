@@ -12,6 +12,17 @@ export default function App() {
       <AnimatePresence>
         <VideoModalProvider>
             <div className="min-h-screen bg-[var(--picturist-warm-white)] relative">
+              <style jsx global>{`
+                .bounce-hover:not(button):hover {
+                  animation: subtleBounce 0.2s ease-out;
+                }
+                
+                @keyframes subtleBounce {
+                  0% { transform: scale(1); }
+                  50% { transform: scale(1.02); }
+                  100% { transform: scale(1); }
+                }
+              `}</style>
               <Navbar />
               <Routes>
                 <Route path="/" element={<HomePage />} />
