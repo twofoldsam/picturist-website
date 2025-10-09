@@ -146,7 +146,7 @@ export const Hero = () => {
                 </span>{" "}
                 instantly
               </h1>
-              <p className="text-lg md:text-xl lg:text-2xl text-[var(--picturist-text-muted)] max-w-3xl">
+              <p className="text-lg md:text-xl lg:text-[30px] text-[var(--picturist-text-muted)] max-w-3xl">
                 From code tutorials to creative fiction,
                 Picturist's AI delivers ready-to-publish visuals
                 that match your text's tone.
