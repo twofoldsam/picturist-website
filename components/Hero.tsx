@@ -163,7 +163,7 @@ export const Hero = () => {
                   className="group shadow-md"
                   onClick={goToSignIn}
                 >
-                  <span>Start Illustrating</span>
+                  <span>This is a test</span>
                   <ArrowRight
                     size={18}
                     className="ml-2 group-hover:translate-x-1 transition-transform"
@@ -365,7 +365,7 @@ export const Hero = () => {
               className="group shadow-md"
                   onClick={goToSignIn}
             >
-                  <span>Start Illustrating</span>
+                  <span>This is a test</span>
               <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             <p className="text-sm text-[var(--picturist-text-muted)] mt-3">
